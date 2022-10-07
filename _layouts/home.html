@@ -39,34 +39,38 @@ layout: default
         <p>Gandaki flows from south to north in the Uttarbahini region. The North direction is the most important in
           Sanātana Dharma. Himalaya Mountains, Mount Kailash, and Vaikuntha Dhams are in the North direction.</p>
 
-        <p>In Vastu Shastra, the land facing north is considered to be the best. The place where holy rivers, which have
+        <p class="mb-5">In Vastu Shastra, the land facing north is considered to be the best. The place where holy
+          rivers, which have
           religious significance in themselves, flow through north channels is considered to be the most important
           place.</p>
 
-        <p>The reason why Banaras is the most important on the banks of the Ganges River is that the Ganges flows north
-          in Banaras.</p>
 
-        <p>Khadka Shamsher got a chance to know the glory of the Uttarabahini region while travelling to Banaras. After
-          he returned to Nepal, there is a history of building the Ranimahal after researching with scholars to find out
-          where the Gandaki river turned to the north.</p>
+        <!-- Home Post List -->
+        {% for post in site.posts limit : 5 %}
 
-        <p>In geography, the north direction is upwards and the south direction is downwards. It is the nature of a
-          river to flow from the mountains above i.e. north to the sea below i.e. south, but the situation where the
-          river turns 360 degrees i.e. completely to the north is extremely rare. The place where the river returns to
-          its source i.e. towards Maitighar is considered to be the most sacred and auspicious place.</p>
+        <article class="post-preview">
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+            {% endif %}
+          </a>
+          <p class="post-meta">Posted by
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            on
+            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+          </p>
+        </article>
 
-        <p>Therefore, where the river turns to the north, there is a throng of devout pilgrims, fairs are held and
-          devotees come from far and wide with deep faith in their hearts to perform the deity work.</p>
+        <hr>
 
-        <p>As the river turns northward in areas such as Gokarna, Betravati in Nepal and Varanasi in India, it has
-          become the beloved region of many incarnations of God and the centre of faith of the people.</p>
-
-        <p>The direction of magnetic field lines within the magnet is from south to north.</p>
-
-
-        <p class="mb-5">The word Uttar in Nepali is not only a directional word but also a solution word. Thus,
-          returning to the North means from the problem to the solution, from the question to the answer. In other
-          words, the solution to all the problems of the world is found in Uttarabahini.</p>
+        {% endfor %}
 
 
       </div>
